@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 1</title>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+
+    <script crossorigin src="React/react.development.js"></script>
+    <script crossorigin src="React/react-dom.development.js"></script>
+    <script src="React/babel.min.js"></script>
+
+    <script type="text/babel">
+        
+        class CompNome extends React.Component{
+            
+            //------construtor------
+            constructor(props){
+                super(props)
+
+                this.state = {
+                    nome: this.props.nome
+                }
+                
+                //------biding------
+                this.cmd_Click = this.cmd_Click.bind(this);
+            }
+            //------evento------
+            cmd_Click(props){
+                this.setState({nome: this.props.nome2})
+            }
+
+            //------render------
+            render(){
+                return(
+                    <div>
+                        <p>Nome: {this.state.nome} </p>
+                        <button onClick = {this.cmd_Click} >Alterar</button>    
+                    </div>
+                )
+
+            }
+        }
+
+        class Conteudo extends React.Component{
+
+            render(){
+                return(
+                    <div>
+                        <h2>Exercício</h2>
+
+                        <CompNome nome="João"  nome2 = "Ribeiro" />
+                        <CompNome nome="Ana" nome2 = "Carla" />
+                        <CompNome nome="Carlos" nome2 = "António" />
+
+                    </div>
+
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <Conteudo />, 
+            document.getElementById('root')
+        )
+
+    </script>
+</body>
+</html>
