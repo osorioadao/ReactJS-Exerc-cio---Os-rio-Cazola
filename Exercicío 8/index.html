@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    
+    <div id="root"></div>
+
+
+    <script crossorigin src="React/react.development.js"></script>
+    <script crossorigin src="React/react-dom.development.js"></script>
+    <script src="React/babel.min.js"></script>
+
+    <script type="text/babel">
+        
+        class App extends React.Component{
+            render(){
+
+                return(
+                    <div>
+                        <CompA />
+                        <CompB />
+                    </div>
+                )
+            }
+        }
+        class CompA extends React.Component{
+            render(){
+                const estilo = {
+                    backgroundColor: 'red',
+                    padding: '10px',
+                    color: 'white'          
+                }
+
+                return(
+                    <div style = {estilo} >
+                        <p>Texto do CompA</p>
+                    </div>
+                )
+            }
+        }
+
+        class CompB extends React.Component{
+            render(){
+                const estilo = {
+                    backgroundColor: 'green',
+                    padding: '10px',
+                    color: 'white'          
+                }
+
+                return(
+                    <div style = {estilo} >
+                        <p>Texto do CompB</p>
+                    </div>
+                )
+            }
+        }
+            ReactDOM.render(
+                <App />, 
+                document.getElementById('root')
+            )
+
+    </script>
+</body>
+</html>
